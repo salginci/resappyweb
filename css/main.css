@@ -17,6 +17,39 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.main-nav {
+  display: flex;
+}
+
+.main-nav__left {
+  display: flex;
+  margin-right: auto;
+  list-style: none;
+}
+
+.main-nav__left li:not(:first-child) {
+  margin-left: 2.5rem;
+}
+
+.main-nav__left li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.main-nav__right {
+  display: flex;
+  list-style: none;
+}
+
+.main-nav__right li:not(:first-child) {
+  margin-left: 2.5rem;
+}
+
+.main-nav__right li a {
+  color: #fff;
+  text-decoration: none;
+}
+
 .row {
   max-width: 114rem;
   margin: 0 auto;
@@ -37,5 +70,21 @@ body {
   background-image: url(../../img/BG-1.jpg);
   background-position: center;
   background-size: cover;
+  position: relative;
+}
+
+.header .logo {
+  display: inline-block;
+  margin-right: 4rem;
+}
+
+.header .logo img {
+  display: inline-block;
+  height: 4rem;
+  width: auto;
+}
+
+.header .main-nav {
+  padding: 5rem 0;
 }
 /*# sourceMappingURL=main.css.map */

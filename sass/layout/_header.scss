@@ -3,4 +3,17 @@
   background-image: url(../../img/BG-1.jpg);
   background-position: center;
   background-size: cover;
+  position: relative;
+  .logo {
+    display: inline-block;
+    margin-right: 4rem;
+    img {
+      display: inline-block;
+      height: 4rem;
+      width: auto;
+    }
+  }
+  .main-nav {
+    padding: 5rem 0;
+  }
 }

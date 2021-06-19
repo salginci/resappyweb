@@ -1,0 +1,31 @@
+.main-nav {
+  display: flex;
+  //   justify-content: space-between;
+  &__left {
+    display: flex;
+    margin-right: auto;
+    list-style: none;
+    li {
+      &:not(:first-child) {
+        margin-left: 2.5rem;
+      }
+      a {
+        color: $color-white;
+        text-decoration: none;
+      }
+    }
+  }
+  &__right {
+    display: flex;
+    list-style: none;
+    li {
+      &:not(:first-child) {
+        margin-left: 2.5rem;
+      }
+      a {
+        color: $color-white;
+        text-decoration: none;
+      }
+    }
+  }
+}
