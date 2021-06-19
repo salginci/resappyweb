@@ -84,17 +84,54 @@ body {
 .btn {
   text-decoration: none;
   display: inline-block;
-  padding: 0.7rem 2rem;
   border-radius: 15px;
 }
 
 .btn--primary {
+  padding: 0.7rem 2rem;
   color: #fff;
   background-color: red;
 }
 
 .btn--primary-dark {
   font-size: 2.4rem;
+}
+
+.btn--learn {
+  padding-left: 0;
+  font-weight: 700;
+  color: #333;
+  font-size: 2.5rem;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+}
+
+.slider__img {
+  flex: 0 0 50%;
+}
+
+.slider__img img {
+  width: 42vw;
+  height: 40vw;
+}
+
+.slider__text {
+  margin-left: 10rem;
+  flex: 1;
+  position: relative;
+}
+
+.slider__text::before {
+  content: "1";
+  position: absolute;
+  left: -23%;
+  top: -45%;
+  font-size: 35rem;
+  z-index: -1;
+  opacity: 0.6;
 }
 
 .row {
@@ -209,7 +246,8 @@ body {
   height: 45rem;
 }
 
-.section-intro {
+.section-intro,
+.section-slider {
   padding: 20rem 0;
 }
 /*# sourceMappingURL=main.css.map */
