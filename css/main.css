@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "gilroy";
+  src: url(../../fonts/Gilroy-ExtraBold.otf);
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "gilroy";
+  src: url(../../fonts/Gilroy-Light.otf);
+  font-style: normal;
+  font-weight: 300;
+}
+
 *,
 *::before,
 *::after {
@@ -11,16 +25,43 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: gilroy;
   font-size: 1.8rem;
+  color: #34374c;
   font-weight: 400;
   text-rendering: optimizeLegibility;
 }
 
 .heading-secondary {
-  color: red;
+  color: #ee2b47;
   font-size: 8rem;
   font-weight: 600;
+  line-height: 1;
+}
+
+.heading-tertiary {
+  font-size: 4rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+.heading-tertiary::after {
+  content: "";
+  width: 70%;
+  height: 5px;
+  background-color: #ee2b47;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  bottom: 1rem;
+  z-index: -1;
+}
+
+.heading-tetra {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 .u-ml-sm {
@@ -40,7 +81,16 @@ body {
 }
 
 .u-color-primary {
-  color: red;
+  color: #ee2b47;
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.w-90 {
+  margin: 0 auto;
+  width: 90%;
 }
 
 .main-nav {
@@ -90,11 +140,22 @@ body {
 .btn--primary {
   padding: 0.7rem 2rem;
   color: #fff;
-  background-color: red;
+  background-color: #ee2b47;
 }
 
 .btn--primary-dark {
   font-size: 2.4rem;
+  background-color: #89233c;
+  font-weight: 700;
+}
+
+.btn--primary-light {
+  font-size: 1.8rem;
+  width: 30%;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  padding: 1rem 2rem;
 }
 
 .btn--learn {
@@ -102,6 +163,55 @@ body {
   font-weight: 700;
   color: #333;
   font-size: 2.5rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons a {
+  text-decoration: none;
+  color: #34374c;
+  font-weight: 700;
+  font-size: 2rem;
+  padding: 1.1rem 2rem;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  width: 10%;
+  text-align: center;
+}
+
+.buttons a.active {
+  background-color: rgba(238, 43, 71, 0.3);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 4rem;
+  padding: 2rem 0;
+  margin-bottom: 6rem;
+}
+
+.feature {
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.07);
+  padding: 3rem 5rem;
+  border-radius: 3px;
+}
+
+.feature__icon {
+  width: 6rem;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  display: block;
+  text-align: center;
+}
+
+.feature__text {
+  font-size: 1.6rem;
+  font-weight: 300;
 }
 
 .slider {
@@ -127,11 +237,88 @@ body {
 .slider__text::before {
   content: "1";
   position: absolute;
-  left: -23%;
+  left: -14%;
   top: -45%;
   font-size: 35rem;
   z-index: -1;
-  opacity: 0.6;
+  color: rgba(238, 43, 71, 0.3);
+  font-weight: 700;
+}
+
+.title p {
+  font-weight: 300;
+  font-size: 2rem;
+}
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  padding: 5rem 0;
+  align-items: center;
+}
+
+.footer__top > * {
+  width: 25%;
+}
+
+.footer__top-left {
+  flex: 0 0 30%;
+}
+
+.footer__top-left p {
+  font-weight: 300;
+}
+
+.footer__top h4 {
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+.footer__bottom {
+  background-color: #34374c;
+  padding: 2rem 0;
+}
+
+.footer__bottom::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.footer__bottom-left {
+  font-weight: 300;
+  float: left;
+}
+
+.footer__bottom-right {
+  float: right;
+}
+
+.footer__bottom-right a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 5rem;
+}
+
+.footer__bottom .row {
+  color: #fff;
+}
+
+.footer__main-nav ul {
+  list-style: none;
+}
+
+.footer__main-nav ul li {
+  display: block;
+}
+
+.footer__main-nav ul li a {
+  color: #34374c;
+  font-weight: 300;
+  display: inline-block;
+  margin-bottom: 1rem;
+  text-decoration: none;
 }
 
 .row {
@@ -187,8 +374,13 @@ body {
   transform: translateY(-50%);
 }
 
+.header__text-box h1 {
+  font-family: gilroy;
+  font-size: 4rem;
+}
+
 .header__text-box h1 span {
-  color: red;
+  color: #ee2b47;
   position: relative;
 }
 
@@ -224,7 +416,7 @@ body {
 }
 
 .intro__text p span {
-  color: red;
+  color: #ee2b47;
   font-weight: 700;
 }
 
@@ -247,7 +439,35 @@ body {
 }
 
 .section-intro,
-.section-slider {
-  padding: 20rem 0;
+.section-slider,
+.section-feature,
+.section-cta {
+  padding: 10rem 0;
+}
+
+.section-cta {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.712), rgba(0, 0, 0, 0.712)), url(../../img/5.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.section-cta .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+
+.section-cta .row h1 {
+  flex: 0 0 55%;
+  font-size: 6rem;
+  margin-right: 10%;
+}
+
+.section-cta .row a {
+  flex: 1;
+  text-align: center;
 }
 /*# sourceMappingURL=main.css.map */

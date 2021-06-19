@@ -1,6 +1,7 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: gilroy;
   font-size: 1.8rem;
+  color: $color-secondary;
   font-weight: 400;
   text-rendering: optimizeLegibility;
 }
@@ -8,4 +9,27 @@ body {
   color: $color-primary;
   font-size: 8rem;
   font-weight: 600;
+  line-height: 1;
+}
+.heading-tertiary {
+  font-size: 4rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  &::after {
+    content: "";
+    width: 70%;
+    height: 5px;
+    background-color: $color-primary;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: 1rem;
+    z-index: -1;
+  }
+}
+.heading-tetra {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
 }

@@ -15,11 +15,12 @@
     &::before {
       content: "1";
       position: absolute;
-      left: -23%;
+      left: -14%;
       top: -45%;
       font-size: 35rem;
       z-index: -1;
-      opacity: 0.6;
+      color: rgba($color: $color-primary, $alpha: 0.3);
+      font-weight: 700;
     }
   }
 }

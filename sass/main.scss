@@ -1,3 +1,4 @@
+@import "./abstracts/fonts";
 @import "./abstracts/mixins";
 @import "./abstracts/variables";
 
@@ -8,7 +9,9 @@
 
 @import "./components/navbar";
 @import "./components/button";
+@import "./components/feature";
 @import "./components/slider";
+@import "./components/title";
 
 @import "./layout/footer";
 @import "./layout/grid";
