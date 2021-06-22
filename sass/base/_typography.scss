@@ -4,9 +4,10 @@ body {
   color: $color-secondary;
   font-weight: 400;
   text-rendering: optimizeLegibility;
+  position: relative;
 }
 .heading-secondary {
-  color: $color-primary;
+  color: $color-secondary;
   font-size: 8rem;
   font-weight: 600;
   line-height: 1;

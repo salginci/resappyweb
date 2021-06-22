@@ -1,26 +1,60 @@
 .slider {
   display: flex;
   align-items: center;
+  height: 40vw;
+  // position: relative;
+  overflow: hidden;
+  &__img-container {
+    align-self: flex-start;
+    height: 120vw;
+    transition: all 0.5s ease-in-out;
+  }
   &__img {
     flex: 0 0 50%;
+    height: 40vw;
     img {
       width: 42vw;
       height: 40vw;
     }
   }
-  &__text {
+  &__text-container {
     margin-left: 10rem;
     flex: 1;
     position: relative;
-    &::before {
-      content: "1";
-      position: absolute;
-      left: -14%;
-      top: -45%;
-      font-size: 35rem;
-      z-index: -1;
-      color: rgba($color: $color-primary, $alpha: 0.3);
-      font-weight: 700;
+  }
+  &__text {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-out;
+    &.active {
+      opacity: 1;
+      visibility: visible;
     }
+
+    &--1 {
+      &::before {
+        content: "1";
+      }
+    }
+    &--2 {
+      &::before {
+        content: "2";
+      }
+    }
+    &--3 {
+      &::before {
+        content: "3";
+      }
+    }
+    // &::before {
+    //   position: absolute;
+    //   left: -14%;
+    //   top: -45%;
+    //   font-size: 35rem;
+    //   z-index: -1;
+    //   color: rgba($color: $color-primary, $alpha: 0.3);
+    //   font-weight: 700;
+    // }
   }
 }

@@ -1,0 +1,99 @@
+.modal {
+  &-email {
+    width: 70rem;
+    margin: 0 auto;
+    background-color: $color-white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    &__content {
+      text-align: center;
+      padding: 10rem 15rem;
+      position: relative;
+      .btn--close {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+      }
+    }
+
+    &__label {
+      display: block;
+      margin-bottom: 2rem;
+    }
+    &__input {
+      display: block;
+      background-color: #f1f1f1;
+      outline: none;
+      border: none;
+      padding: 1.5rem 3rem;
+      width: 80%;
+      margin: 0 auto;
+      margin-bottom: 3rem;
+      border-radius: 3px;
+    }
+  }
+  &-verification {
+    width: 70rem;
+    margin: 0 auto;
+    background-color: $color-white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    &__content {
+      text-align: center;
+      padding: 10rem 15rem;
+      position: relative;
+      .btn--close {
+        position: absolute;
+        top: 10%;
+        right: 5%;
+      }
+    }
+    &__text {
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+    }
+    &__timer {
+      color: $color-primary;
+      margin-bottom: 3rem;
+      display: inline-block;
+    }
+    &__form {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+      input {
+        width: 10%;
+        height: 5rem;
+        background-color: #f1f1f1;
+        border: none;
+        &:not(:last-child) {
+          margin-right: 5%;
+        }
+      }
+    }
+    &__btn {
+      text-decoration: none;
+      color: $color-secondary;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+  }
+}
