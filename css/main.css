@@ -12,6 +12,23 @@
   font-weight: 300;
 }
 
+.dropdown__menu-left ul, .dropdown__menu-right ul {
+  list-style: none;
+}
+
+.dropdown__menu-left ul li, .dropdown__menu-right ul li {
+  margin-left: 0 !important;
+  display: block;
+}
+
+.dropdown__menu-left ul li:not(:last-child), .dropdown__menu-right ul li:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+.dropdown__menu-left ul li a, .dropdown__menu-right ul li a {
+  color: #34374c;
+}
+
 *,
 *::before,
 *::after {
@@ -195,6 +212,62 @@ body {
   background-color: rgba(238, 43, 71, 0.3);
 }
 
+.dropdown {
+  position: relative;
+}
+
+.dropdown__content {
+  background-color: #fff;
+  position: absolute;
+  bottom: -37rem;
+  left: 1rem;
+  width: 27rem;
+  border-radius: 3px;
+  z-index: 1;
+  padding: 3rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.dropdown__link {
+  font-size: 2rem;
+  font-weight: 700 !important;
+  color: #34374c !important;
+  position: relative;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.dropdown__link::after {
+  content: "";
+  height: 5px;
+  width: 110%;
+  display: block;
+  background-color: #89233c;
+  position: absolute;
+  bottom: 1px;
+}
+
+.dropdown__text {
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(52, 55, 76, 0.15);
+}
+
+.dropdown__menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown:hover .dropdown__content {
+  opacity: 1;
+  visibility: visible;
+  bottom: -35rem;
+}
+
 .features {
   padding: 10rem 0;
   margin-bottom: 6rem;
@@ -369,6 +442,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease-out;
+  transform: translateY(-50%);
 }
 
 .slider__text.active {
@@ -386,6 +460,36 @@ body {
 
 .slider__text--3::before {
   content: "3";
+}
+
+.slider__text::before {
+  position: absolute;
+  left: -14%;
+  top: -45%;
+  font-size: 35rem;
+  z-index: -1;
+  color: rgba(238, 43, 71, 0.3);
+  font-weight: 700;
+}
+
+.slider__controls {
+  position: absolute;
+  bottom: 6rem;
+  right: 5%;
+}
+
+.slider__controls a {
+  position: absolute;
+  color: #34374c;
+  font-size: 6rem;
+}
+
+.slider__controls a:first-child {
+  transition: transform 0.7s;
+}
+
+.slider__controls a:first-child.active {
+  transform: translateX(-100px) rotateY(180deg);
 }
 
 .title p {
@@ -614,6 +718,10 @@ body {
 .section-feature,
 .section-cta {
   padding: 10rem 0;
+}
+
+.section-slider .row {
+  position: relative;
 }
 
 .section-cta {

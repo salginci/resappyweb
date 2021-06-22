@@ -5,3 +5,18 @@
     clear: both;
   }
 }
+%dropdown-menu-style {
+  ul {
+    list-style: none;
+    li {
+      margin-left: 0 !important;
+      display: block;
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+      a {
+        color: $color-secondary;
+      }
+    }
+  }
+}

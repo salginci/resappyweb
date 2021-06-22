@@ -28,8 +28,36 @@
               <li>
                 <a href="#"><i class="fa fa-search u-color-primary"></i></a>
               </li>
-              <li>
+              <li class="dropdown">
                 <a href="#">Learn</a>
+                <div class="dropdown__content">
+                  <a class="dropdown__link" href="#">Learn</a>
+                  <p class="dropdown__text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Impedit dicta
+                  </p>
+                  <div class="dropdown__menu">
+                    <nav class="dropdown__menu-left">
+                      <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Help center</a></li>
+                        <li><a href="#">Videos</a></li>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="">Why Sell online</a></li>
+                        <li><a href="">Solutions by industry</a></li>
+                      </ul>
+                    </nav>
+                    <nav class="dropdown__menu-right">
+                      <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Guide</a></li>
+                        <li><a href="#">Pods</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Demo</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
               </li>
               <li>
                 <a href="#">Pricing</a>
@@ -114,8 +142,14 @@
               </div>
             </div>
           </div>
-          <a href="javascript:void(0)" onclick="prev(); plusSlides(-1)">Prev</a>
-          <a href="javascript:void(0)" onclick="next(); plusSlides(1)">Prev</a>
+          <div class="slider__controls">
+            <a href="javascript:void(0)" onclick="prev(); plusSlides(-1)"
+              ><i class="fa fa-angle-right"></i
+            ></a>
+            <a href="javascript:void(0)" onclick="next(); plusSlides(1)"
+              ><i class="fa fa-angle-right"></i
+            ></a>
+          </div>
         </div>
       </section>
       <section class="section-feature">

@@ -1,6 +1,6 @@
 @import "./abstracts/fonts";
-@import "./abstracts/mixins";
 @import "./abstracts/variables";
+@import "./abstracts/mixins";
 
 @import "./base/animation";
 @import "./base/base";
@@ -9,6 +9,7 @@
 
 @import "./components/navbar";
 @import "./components/button";
+@import "./components/dropdown";
 @import "./components/feature";
 @import "./components/modal";
 @import "./components/slider";

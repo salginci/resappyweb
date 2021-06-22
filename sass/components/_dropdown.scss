@@ -1,0 +1,56 @@
+.dropdown {
+  position: relative;
+
+  &__content {
+    background-color: $color-white;
+    position: absolute;
+    bottom: -37rem;
+    left: 1rem;
+    width: 27rem;
+    border-radius: 3px;
+    z-index: 1;
+    padding: 3rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+  }
+  &__link {
+    font-size: 2rem;
+    font-weight: 700 !important;
+    color: $color-secondary !important;
+    position: relative;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    &::after {
+      content: "";
+      height: 5px;
+      width: 110%;
+      display: block;
+      background-color: $color-primary-dark;
+      position: absolute;
+      bottom: 1px;
+    }
+  }
+  &__text {
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba($color-secondary, 0.15);
+  }
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    &-left {
+      @extend %dropdown-menu-style;
+    }
+    &-right {
+      @extend %dropdown-menu-style;
+    }
+  }
+  &:hover &__content {
+    opacity: 1;
+    visibility: visible;
+    bottom: -35rem;
+  }
+}
