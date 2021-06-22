@@ -71,6 +71,16 @@ function showSlides(n) {
     slides[i].classList.remove("active");
   }
   slides[slideIndex - 1].classList.add("active");
+  //working with controls
+  let index = slideIndex - 1;
+  if (index === 1) {
+    slideLeftIcon.classList.add("reverse");
+  } else if (index === 2) {
+    slideLeftIcon.classList.add("hide");
+    slideLeftIcon.classList.remove("reverse");
+    slideRightIcon.classList.add("reverse");
+  }
+  console.log(index);
 }
 // ====================================================
 //Modal open close
@@ -103,15 +113,25 @@ function closeVerification() {
 // ====================================================
 //slider icon
 // ====================================================
-let slideNumber = 0;
+// let slideNumber = 0;
 const slideLeftIcon = document.querySelector(".slider__controls a:first-child");
 const slideRightIcon = document.querySelector(".slider__controls a:last-child");
-function increaseSlideNumber() {
-  slideNumber++;
-  if (slideNumber == 1) slideLeftIcon.classList.add("reverse");
-  else if (slideNumber === 2) {
-    slideLeftIcon.classList.add("hide");
-    slideLeftIcon.classList.remove("reverse");
-    slideRightIcon.classList.add("reverse");
-  }
-}
+// function increaseSlideNumber() {
+//   slideNumber++;
+//   if (slideNumber == 1) slideLeftIcon.classList.add("reverse");
+//   else if (slideNumber === 2) {
+//     slideLeftIcon.classList.add("hide");
+//     slideLeftIcon.classList.remove("reverse");
+//     slideRightIcon.classList.add("reverse");
+//   }
+// }
+
+// ====================================================
+//typed js
+// ====================================================
+var options = {
+  strings: ["Experience", "Service"],
+  typeSpeed: 40,
+};
+
+var typed = new Typed(".typing", options);
