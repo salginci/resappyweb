@@ -485,11 +485,25 @@ body {
 }
 
 .slider__controls a:first-child {
+  transition: transform 0.7s, opacity 0.1s, visibility 0.1s;
+}
+
+.slider__controls a:first-child.reverse {
+  transform: translateX(-100px) rotateY(180deg);
+}
+
+.slider__controls a:first-child.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.slider__controls a:last-child {
+  z-index: 2;
   transition: transform 0.7s;
 }
 
-.slider__controls a:first-child.active {
-  transform: translateX(-100px) rotateY(180deg);
+.slider__controls a:last-child.reverse {
+  transform: rotateY(180deg);
 }
 
 .title p {

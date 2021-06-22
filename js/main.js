@@ -99,3 +99,19 @@ function openVerification() {
 function closeVerification() {
   modalVerification.classList.remove("active");
 }
+
+// ====================================================
+//slider icon
+// ====================================================
+let slideNumber = 0;
+const slideLeftIcon = document.querySelector(".slider__controls a:first-child");
+const slideRightIcon = document.querySelector(".slider__controls a:last-child");
+function increaseSlideNumber() {
+  slideNumber++;
+  if (slideNumber == 1) slideLeftIcon.classList.add("reverse");
+  else if (slideNumber === 2) {
+    slideLeftIcon.classList.add("hide");
+    slideLeftIcon.classList.remove("reverse");
+    slideRightIcon.classList.add("reverse");
+  }
+}

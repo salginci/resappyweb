@@ -67,9 +67,20 @@
       color: $color-secondary;
       font-size: 6rem;
       &:first-child {
-        transition: transform 0.7s;
-        &.active {
+        transition: transform 0.7s, opacity 0.1s, visibility 0.1s;
+        &.reverse {
           transform: translateX(-100px) rotateY(180deg);
+        }
+        &.hide {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+      &:last-child {
+        z-index: 2;
+        transition: transform 0.7s;
+        &.reverse {
+          transform: rotateY(180deg);
         }
       }
     }
