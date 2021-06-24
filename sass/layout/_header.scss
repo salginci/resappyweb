@@ -20,13 +20,16 @@
   .main-nav {
     padding: 5rem 0;
   }
+  .main-nav.sticky {
+    padding: 1rem 0;
+  }
   &__text-box {
     margin-left: 9.4rem;
     color: white;
     max-width: $grid-width;
     position: absolute;
     left: 0;
-    top: 50%;
+    top: 30%;
     transform: translateY(-50%);
     h1 {
       font-family: gilroy;

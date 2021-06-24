@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/adp.css" />
     <link rel="stylesheet" href="css/main.css" />
     <title>Resappy - Your favorite restaurant</title>
   </head>
   <body>
     <div class="body-content">
       <header class="header">
-        <div class="row">
-          <nav class="main-nav">
+        <nav class="main-nav">
+          <div class="row">
             <a href="#" class="logo">
               <img src="img/icons/Logo - Vertical.svg" alt="" />
             </a>
@@ -69,11 +70,13 @@
                 >Get started for free</a
               >
             </ul>
-          </nav>
+          </div>
+        </nav>
+        <div class="row">
           <div class="header__text-box">
             <img class="u-mb-md" src="img/icons/Logo - Vertical.svg" alt="" />
             <h1 class="u-mb-sm">
-              We Deliver The Best <span class="typing">Service</span> <br />
+              We Deliver The Best <span id="typing"></span> <br />
               &amp; help you connect with the customer
             </h1>
             <a href="#" class="btn btn--primary btn--primary-dark"
@@ -143,10 +146,14 @@
             </div>
           </div>
           <div class="slider__controls">
-            <a href="javascript:void(0)" onclick="prev(); plusSlides(-1)"
+            <a
+              href="javascript:void(0)"
+              onclick="prev(); plusSlides(-1); decreaseSlideNumber()"
               ><i class="fa fa-angle-right"></i
             ></a>
-            <a href="javascript:void(0)" onclick="next(); plusSlides(1)"
+            <a
+              href="javascript:void(0)"
+              onclick="next(); plusSlides(1);increaseSlideNumber()"
               ><i class="fa fa-angle-right"></i
             ></a>
           </div>
@@ -159,17 +166,19 @@
             <p>Technology solution that covers your need</p>
           </div>
           <div class="buttons w-90">
-            <a href="javascript:void(0)" class="active" data-filter="*">All</a>
-            <a href="javascript:void(0)" data-filter=".marketing">Marketing</a>
-            <a href="javascript:void(0)" data-filter=".sales">Sales</a>
-            <a href="javascript:void(0)" data-filter=".integration"
+            <a href="javascript:void(0)" class="active" data-filter="all"
+              >All</a
+            >
+            <a href="javascript:void(0)" data-filter="marketing">Marketing</a>
+            <a href="javascript:void(0)" data-filter="sales">Sales</a>
+            <a href="javascript:void(0)" data-filter="integration"
               >Integration</a
             >
-            <a href="javascript:void(0)" data-filter=".design">Design</a>
-            <a href="javascript:void(0)" data-filter=".crm">CRM</a>
+            <a href="javascript:void(0)" data-filter="design">Design</a>
+            <a href="javascript:void(0)" data-filter="crm">CRM</a>
           </div>
           <div class="features w-90">
-            <div class="feature marketing">
+            <div class="feature" data-item="marketing">
               <img src="img/icons/1.svg" class="feature__icon" alt="" />
               <h4 class="heading-tetra u-mb-sm">Flexible payment</h4>
               <p class="feature__text u-mb-md">
@@ -178,7 +187,7 @@
               </p>
               <a href="#" class="btn btn--learn">Learn more &rarr;</a>
             </div>
-            <div class="feature sales">
+            <div class="feature" data-item="integration">
               <img src="img/icons/1.svg" class="feature__icon" alt="" />
               <h4 class="heading-tetra u-mb-sm">Flexible payment</h4>
               <p class="feature__text u-mb-md">
@@ -187,7 +196,7 @@
               </p>
               <a href="#" class="btn btn--learn">Learn more &rarr;</a>
             </div>
-            <div class="feature integration">
+            <div class="feature" data-item="design">
               <img src="img/icons/1.svg" class="feature__icon" alt="" />
               <h4 class="heading-tetra u-mb-sm">Flexible payment</h4>
               <p class="feature__text u-mb-md">
@@ -196,7 +205,7 @@
               </p>
               <a href="#" class="btn btn--learn">Learn more &rarr;</a>
             </div>
-            <div class="feature design">
+            <div class="feature" data-item="crm">
               <img src="img/icons/1.svg" class="feature__icon" alt="" />
               <h4 class="heading-tetra u-mb-sm">Flexible payment</h4>
               <p class="feature__text u-mb-md">
@@ -205,7 +214,7 @@
               </p>
               <a href="#" class="btn btn--learn">Learn more &rarr;</a>
             </div>
-            <div class="feature marketing">
+            <div class="feature" data-item="marketing">
               <img src="img/icons/1.svg" class="feature__icon" alt="" />
               <h4 class="heading-tetra u-mb-sm">Flexible payment</h4>
               <p class="feature__text u-mb-md">
@@ -214,7 +223,7 @@
               </p>
               <a href="#" class="btn btn--learn">Learn more &rarr;</a>
             </div>
-            <div class="feature sales">
+            <div class="feature" data-item="sales">
               <img src="img/icons/1.svg" class="feature__icon" alt="" />
               <h4 class="heading-tetra u-mb-sm">Flexible payment</h4>
               <p class="feature__text u-mb-md">
@@ -224,7 +233,10 @@
               <a href="#" class="btn btn--learn">Learn more &rarr;</a>
             </div>
           </div>
-          <a href="#" class="btn btn--primary btn--primary-light"
+          <a
+            href="javascript:void(0)"
+            class="btn btn--primary btn--primary-light"
+            id="explore-more"
             >Explore more</a
           >
         </div>
@@ -331,9 +343,12 @@
         >
       </div>
     </div>
-    <script src="js/jquery.min.js"></script>
+    <!-- <script src="js/jquery.min-2.2.4.js"></script> -->
+    <script src="js/jquery.min-2.2.4.js"></script>
+    <script src="js/jquery.waypoints.js"></script>
     <script src="js/isotop.min.js"></script>
     <script src="js/typed.min.js"></script>
+    <script src="js/adp.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

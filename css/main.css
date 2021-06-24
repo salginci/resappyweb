@@ -111,7 +111,7 @@ body {
   width: 90%;
 }
 
-.main-nav {
+.main-nav .row {
   display: flex;
   align-items: center;
 }
@@ -147,6 +147,29 @@ body {
   color: #fff;
   text-decoration: none;
   font-weight: 700;
+}
+
+.main-nav.sticky {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.98);
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 2px 2px #efefef;
+  z-index: 2;
+  transition: all 0.5s;
+}
+
+.main-nav.sticky .main-nav__left li a {
+  color: #34374c !important;
+}
+
+.main-nav.sticky .main-nav__right li a {
+  color: #34374c !important;
+}
+
+.main-nav.sticky .btn.btn--primary {
+  background-color: #34374c;
 }
 
 .btn {
@@ -271,16 +294,20 @@ body {
 .features {
   padding-top: 10rem;
   margin-bottom: 6rem;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 
 .feature {
   box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.07);
-  margin-right: 3rem;
-  padding: 2rem 4rem;
   width: 22%;
   height: 30rem;
   border-radius: 3px;
+  padding: 2rem 4rem;
+  margin: 0 1.5rem;
   margin-bottom: 10rem;
+  transition: all 0.3s;
 }
 
 .feature__icon {
@@ -485,25 +512,36 @@ body {
 }
 
 .slider__controls a:first-child {
-  transition: transform 0.7s, opacity 0.1s, visibility 0.1s;
+  transition: transform 0.5s;
 }
 
-.slider__controls a:first-child.reverse {
+.slider__controls a:first-child.stage-1 {
   transform: translateX(-100px) rotateY(180deg);
 }
 
-.slider__controls a:first-child.hide {
+.slider__controls a:first-child.stage-2 {
   opacity: 0;
   visibility: hidden;
+  transform: translateX(0) rotateY(180deg);
+}
+
+.slider__controls a:first-child.stage-3 {
+  opacity: 1;
+  visibility: visible;
 }
 
 .slider__controls a:last-child {
-  z-index: 2;
-  transition: transform 0.7s;
+  transition: transform 0.5s;
 }
 
-.slider__controls a:last-child.reverse {
+.slider__controls a:last-child.stage-1 {
   transform: rotateY(180deg);
+}
+
+.slider__controls a:last-child.stage-2 {
+  user-select: none;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .title p {
@@ -653,13 +691,17 @@ body {
   padding: 5rem 0;
 }
 
+.header .main-nav.sticky {
+  padding: 1rem 0;
+}
+
 .header__text-box {
   margin-left: 9.4rem;
   color: white;
   max-width: 114rem;
   position: absolute;
   left: 0;
-  top: 50%;
+  top: 30%;
   transform: translateY(-50%);
 }
 

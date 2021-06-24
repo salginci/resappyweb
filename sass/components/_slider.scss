@@ -67,20 +67,30 @@
       color: $color-secondary;
       font-size: 6rem;
       &:first-child {
-        transition: transform 0.7s, opacity 0.1s, visibility 0.1s;
-        &.reverse {
+        transition: transform 0.5s;
+        &.stage-1 {
           transform: translateX(-100px) rotateY(180deg);
         }
-        &.hide {
+        &.stage-2 {
           opacity: 0;
           visibility: hidden;
+          transform: translateX(0) rotateY(180deg);
+        }
+        &.stage-3 {
+          opacity: 1;
+          visibility: visible;
         }
       }
       &:last-child {
-        z-index: 2;
-        transition: transform 0.7s;
-        &.reverse {
+        // z-index: 2;
+        transition: transform 0.5s;
+        &.stage-1 {
           transform: rotateY(180deg);
+        }
+        &.stage-2 {
+          user-select: none;
+          opacity: 0;
+          visibility: hidden;
         }
       }
     }
