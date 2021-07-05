@@ -5,6 +5,36 @@
     clear: both;
   }
 }
+
+// Media query manager
+// phone -
+// Tab port
+// Tab land
+// Big desktop
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
 %dropdown-menu-style {
   ul {
     list-style: none;
@@ -16,7 +46,19 @@
       }
       a {
         color: $color-secondary;
+        font-size: 2rem;
+        transition: color 0.3s;
+        &:hover {
+          color: $color-primary;
+        }
       }
     }
+  }
+}
+
+@mixin add-padding {
+  @media (max-width: 1040px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }

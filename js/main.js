@@ -1,56 +1,56 @@
 // $(document).ready(function () {
 // ready
 
-const items = [
-  {
-    img: "img/icons/1.svg",
-    heading: "Item 1",
-    paragraph:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hicpariatur fugit vel at, quibusdam excepturi.",
-    link: "#",
-    filter: "marketing",
-  },
-  {
-    img: "img/icons/1.svg",
-    heading: "Item 2",
-    paragraph:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hicpariatur fugit vel at, quibusdam excepturi.",
-    link: "#",
-    filter: "sales",
-  },
-  {
-    img: "img/icons/1.svg",
-    heading: "Item 3",
-    paragraph:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hicpariatur fugit vel at, quibusdam excepturi.",
-    link: "#",
-    filter: "marketing",
-  },
-  {
-    img: "img/icons/1.svg",
-    heading: "Item 4",
-    paragraph:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hicpariatur fugit vel at, quibusdam excepturi.",
-    link: "#",
-    filter: "integration",
-  },
-  {
-    img: "img/icons/1.svg",
-    heading: "Item 5",
-    paragraph:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hicpariatur fugit vel at, quibusdam excepturi.",
-    link: "#",
-    filter: "design",
-  },
-  {
-    img: "img/icons/1.svg",
-    heading: "Item 6",
-    paragraph:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hicpariatur fugit vel at, quibusdam excepturi.",
-    link: "#",
-    filter: "crm",
-  },
-];
+// const items = [
+//   {
+//     img: "img/icons/1.svg",
+//     heading: "Item 1",
+//     paragraph:
+//       " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hicpariatur fugit vel at, quibusdam excepturi.",
+//     link: "#",
+//     filter: "marketing",
+//   },
+//   {
+//     img: "img/icons/1.svg",
+//     heading: "Item 2",
+//     paragraph:
+//       " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hicpariatur fugit vel at, quibusdam excepturi.",
+//     link: "#",
+//     filter: "sales",
+//   },
+//   {
+//     img: "img/icons/1.svg",
+//     heading: "Item 3",
+//     paragraph:
+//       " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hicpariatur fugit vel at, quibusdam excepturi.",
+//     link: "#",
+//     filter: "marketing",
+//   },
+//   {
+//     img: "img/icons/1.svg",
+//     heading: "Item 4",
+//     paragraph:
+//       " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hicpariatur fugit vel at, quibusdam excepturi.",
+//     link: "#",
+//     filter: "integration",
+//   },
+//   {
+//     img: "img/icons/1.svg",
+//     heading: "Item 5",
+//     paragraph:
+//       " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hicpariatur fugit vel at, quibusdam excepturi.",
+//     link: "#",
+//     filter: "design",
+//   },
+//   {
+//     img: "img/icons/1.svg",
+//     heading: "Item 6",
+//     paragraph:
+//       " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hicpariatur fugit vel at, quibusdam excepturi.",
+//     link: "#",
+//     filter: "crm",
+//   },
+// ];
 // ====================================================
 //Waypoint - sticky
 // ====================================================
@@ -73,38 +73,78 @@ $(".section-intro").waypoint(
 // ====================================================
 //add active class to button filter in feature section
 // =======================================================
+//declare variable
 const buttons = document.querySelectorAll(".buttons a");
 let features = document.querySelectorAll(".feature");
+const showAllButton = document.querySelector(".show-all-button");
+const loadMoreButton = document.querySelector(".load-more-button");
+
+// Load for the first Time
+for (let i = 6; i < features.length; i++) {
+  features[i].classList.add("d-none");
+}
+//show laod more button
+loadMoreButton.classList.remove("d-none");
+getIsotopCode();
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    removeActiveClass();
+    //remove active class
+    buttons.forEach((btn) => {
+      btn.classList.remove("active");
+    });
+    //add active class
     button.classList.add("active");
 
-    //add filter
-    features.forEach((feature) => {
-      feature.style.display = "none";
-      // ADP.hide(feature, "fade");
-      // feature.classList.remove("active");
-      // feature.classList.add("inactive");
-      const showedItem = button.getAttribute("data-filter");
-      if (
-        feature.getAttribute("data-item") == showedItem ||
-        showedItem == "all"
-      ) {
-        feature.style.display = "block";
-        // ADP.show(feature, "fade");
-        // feature.classList.add("active");
-        // feature.classList.remove("inactive");
+    //add load more feature
+    if (showAllButton.classList.contains("active")) {
+      for (let i = 6; i < features.length; i++) {
+        features[i].classList.add("d-none");
       }
-    });
-  });
+      //show laod more button
+      loadMoreButton.classList.remove("d-none");
+      loadMoreButton.innerHTML = "Load more";
+
+      getIsotopCode();
+    } else {
+      features.forEach((elem) => {
+        elem.classList.remove("d-none");
+      });
+      loadMoreButton.classList.add("d-none");
+      getIsotopCode();
+    }
+  }); //end of event listener
 });
-function removeActiveClass() {
-  buttons.forEach((button) => {
-    button.classList.remove("active");
+
+//load more button execution
+loadMoreButton.addEventListener("click", () => {
+  if (loadMoreButton.innerHTML == "Load more") {
+    loadMoreButton.innerHTML = "Show less";
+    features.forEach((feature) => {
+      feature.classList.remove("d-none");
+    });
+    getIsotopCode();
+  } else {
+    loadMoreButton.innerHTML = "Load more";
+    for (let i = 6; i < features.length; i++) {
+      features[i].classList.add("d-none");
+    }
+    getIsotopCode();
+  }
+});
+
+//Isotop  playground
+function getIsotopCode() {
+  var $grid = $(".features").isotope({
+    // options
+  });
+  // filter items on button click
+  $(".buttons").on("click", "a", function () {
+    var filterValue = $(this).attr("data-filter");
+    $grid.isotope({ filter: filterValue });
   });
 }
+
 // ====================================================
 //slider -----------😥😥😥😥😥😛😛😛😌-------------
 // =======================================================
@@ -178,6 +218,7 @@ function openVerification() {
   setTimeout(() => {
     bodyContent.classList.add("active");
     modalVerification.classList.add("active");
+    countDown();
   }, 1000);
 }
 function closeVerification() {
@@ -192,6 +233,7 @@ const slideLeftIcon = document.querySelector(".slider__controls a:first-child");
 const slideRightIcon = document.querySelector(".slider__controls a:last-child");
 let stageNumber = 0;
 function increaseSlideNumber() {
+  if (stageNumber == 2) return;
   stageNumber++;
   if (stageNumber == 1) {
     slideLeftIcon.classList.add("stage-1");
@@ -241,35 +283,62 @@ var typed3 = new Typed("#typing", {
 // ====================================================
 //Load more
 // ====================================================
-const exploreMoreButton = document.querySelector("#explore-more");
-const featureContainer = document.querySelector(".features");
-exploreMoreButton.addEventListener("click", function () {
-  if (this.innerText == "Explore more") {
-    this.innerText = "Show less";
-    items.forEach((item) => {
-      const element = document.createElement("div");
-      element.classList.add("feature");
-      element.classList.add("feature-del");
-      element.setAttribute("data-item", item.filter);
-      element.innerHTML = `
-      <img src="${item.img}" class="feature__icon" alt="" />
-              <h4 class="heading-tetra u-mb-sm">${item.heading}</h4>
-              <p class="feature__text u-mb-md">
-               ${item.paragraph}
-              </p>
-              <a href="${item.link}" class="btn btn--learn">Learn more &rarr;</a>
-      `;
-      featureContainer.appendChild(element);
-    });
-  } else if (this.innerText == "Show less") {
-    this.innerText = "Explore more";
-    const deletedFeature = document.querySelectorAll(".feature-del");
-    deletedFeature.forEach((item) => {
-      item.remove();
-    });
-  }
-  features = document.querySelectorAll(".feature");
-});
+// const exploreMoreButton = document.querySelector("#explore-more");
+// const featureContainer = document.querySelector(".features");
+// exploreMoreButton.addEventListener("click", function () {
+//   if (this.innerText == "Explore more") {
+//     this.innerText = "Show less";
+//     items.forEach((item) => {
+//       const element = document.createElement("div");
+//       element.classList.add("feature");
+//       element.classList.add("feature-del");
+//       element.setAttribute("data-item", item.filter);
+//       element.innerHTML = `
+//       <img src="${item.img}" class="feature__icon" alt="" />
+//               <h4 class="heading-tetra u-mb-sm">${item.heading}</h4>
+//               <p class="feature__text u-mb-md">
+//                ${item.paragraph}
+//               </p>
+//               <a href="${item.link}" class="btn btn--learn">Learn more &rarr;</a>
+//       `;
+//       featureContainer.appendChild(element);
+//     });
+//   } else if (this.innerText == "Show less") {
+//     this.innerText = "Explore more";
+//     const deletedFeature = document.querySelectorAll(".feature-del");
+//     deletedFeature.forEach((item) => {
+//       item.remove();
+//     });
+//   }
+//   features = document.querySelectorAll(".feature");
+// });
 // End of ready
 // });
 //helper
+// ====================================================
+//mobile nav
+// ====================================================
+const mobileContent = document.querySelector(".mobile-content");
+const mobileContentClose = document.querySelector(".mobile-content__close");
+function closeMobileContent() {
+  mobileContent.classList.remove("active");
+}
+function showMobileContent() {
+  mobileContent.classList.add("active");
+}
+// ====================================================
+//Cound down
+// ====================================================
+function countDown() {
+  let time = 80;
+  const minuteDom = document.querySelector("#minute");
+  const secondDom = document.querySelector("#second");
+  let timerId = setInterval(() => {
+    time--;
+    const minutes = Math.floor(time / 60);
+    const second = Math.floor(time % 60);
+    minuteDom.innerHTML = minutes;
+    secondDom.innerHTML = second;
+    if (time === 0) clearInterval(timerId);
+  }, 1000);
+}

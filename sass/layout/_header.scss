@@ -4,6 +4,7 @@
   background-position: center;
   background-size: cover;
   position: relative;
+  overflow: hidden;
   .row {
     position: relative;
     height: 100%;
@@ -13,7 +14,7 @@
     margin-right: 4rem;
     img {
       display: inline-block;
-      height: 4rem;
+      height: 6rem;
       width: auto;
     }
   }
@@ -21,7 +22,13 @@
     padding: 5rem 0;
   }
   .main-nav.sticky {
-    padding: 1rem 0;
+    padding: 0rem 0;
+  }
+  .main-nav.sticky .mobile-menu__link {
+    color: $color-secondary;
+    &:hover {
+      color: $color-primary;
+    }
   }
   &__text-box {
     margin-left: 9.4rem;
@@ -31,10 +38,21 @@
     left: 0;
     top: 30%;
     transform: translateY(-50%);
+    @media (max-width: 40em) {
+      margin-left: 5rem;
+    }
+    @media (max-width: 385px) {
+      margin-left: 2rem;
+    }
     h1 {
       font-family: gilroy;
       font-size: 4rem;
-      span {
+      @media (max-width: 519px) {
+        #line-break {
+          display: block;
+        }
+      }
+      #typing {
         color: $color-primary;
         position: relative;
         &::after {
@@ -50,8 +68,17 @@
         }
       }
     }
-    img {
-      height: 5rem;
+  }
+  &__text {
+    &-paragraph {
+      font-weight: 700;
+      font-size: 5rem;
+      letter-spacing: 1px;
+    }
+    &-img {
+      height: 7rem;
+      display: inline-block;
+      margin-left: 4.5rem;
     }
   }
 }

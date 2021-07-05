@@ -1,9 +1,27 @@
 .footer {
+  background-color: #eee;
+  .row {
+    @include respond(tab-port) {
+      margin-bottom: 0 !important;
+    }
+  }
   &__top {
     display: flex;
     justify-content: space-between;
+    @include respond(tab-port) {
+      display: block;
+      width: 70%;
+      margin: 0 auto;
+    }
+    @include respond(phone) {
+      width: 90%;
+    }
     & > * {
       width: 25%;
+      @include respond(tab-port) {
+        width: 100%;
+        margin-bottom: 4rem;
+      }
     }
     // grid-template-columns: repeat(3, 1fr);
     // grid-gap: 5rem;
@@ -11,19 +29,44 @@
     align-items: center;
     &-left {
       flex: 0 0 30%;
+      @media (max-width: 1022px) {
+        padding-left: 2%;
+      }
+      @include respond(tab-port) {
+        padding-left: 0;
+      }
+      img {
+        margin-bottom: 1.5rem;
+        height: 8rem;
+        filter: brightness(0) saturate(100%) invert(18%) sepia(22%)
+          saturate(802%) hue-rotate(194deg) brightness(92%) contrast(85%);
+      }
       p {
         font-weight: 300;
+        font-size: 1.8rem;
+      }
+    }
+    &-right {
+      @include respond(tab-port) {
+        margin-bottom: 0;
       }
     }
     h4 {
       text-align: left;
       margin-bottom: 3rem;
+      font-size: 2.5rem;
+      @include respond(tab-port) {
+        margin-bottom: 1.5rem;
+      }
     }
   }
   &__bottom {
     background-color: $color-secondary;
     padding: 2rem 0;
+    font-size: 1.6rem;
     @include clearfix;
+    // add padding to left and right in 1040px width screen
+    @include add-padding;
     &-left {
       font-weight: 300;
       float: left;
@@ -34,7 +77,12 @@
         color: $color-white;
         text-decoration: none;
         display: inline-block;
-        margin-left: 5rem;
+        &:not(:first-of-type) {
+          margin-left: 5rem;
+          @include respond(phone) {
+            margin-left: 3rem;
+          }
+        }
       }
     }
     .row {
@@ -49,12 +97,13 @@
     list-style: none;
     li {
       display: block;
+      line-height: 1.5;
       a {
         color: $color-secondary;
         font-weight: 300;
         display: inline-block;
-        margin-bottom: 1rem;
         text-decoration: none;
+        font-size: 1.8rem;
       }
     }
   }

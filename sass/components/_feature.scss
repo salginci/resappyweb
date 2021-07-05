@@ -2,13 +2,15 @@
   padding-top: 10rem;
   margin-bottom: 6rem;
 
-  display: flex;
-  flex-wrap: wrap;
-
-  overflow: hidden;
+  // display: flex;
+  // flex-wrap: wrap;
+  @include respond(phone) {
+    width: 70%;
+    margin: 0 auto;
+  }
 }
 .feature {
-  box-shadow: 5px 10px 20px rgba($color: #000000, $alpha: 0.07);
+  box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
   // border: 1px solid black;
   width: 22%;
   height: 30rem;
@@ -16,29 +18,43 @@
   padding: 2rem 4rem;
   margin: 0 1.5rem;
   margin-bottom: 10rem;
+  @media (max-width: 61.5em) {
+    //984px
+    width: 20.5%;
+    margin-bottom: 7rem;
+  }
 
-  transition: all 0.3s;
+  @media (max-width: 49.37em) {
+    width: 36%;
+  }
+  @media (max-width: 699px) {
+    width: 34%;
+    margin-bottom: 5rem;
+  }
+  @media (max-width: 625px) {
+    width: 33.5%;
+  }
+  @include respond(phone) {
+    width: 75%;
+    margin-left: 1.5rem;
+    margin-right: 0;
+  }
+  // transition: all 0.3s;
   &__icon {
-    width: 6rem;
+    width: 9rem;
     margin: 0 auto;
     margin-bottom: 1rem;
     display: block;
     text-align: center;
   }
   &__text {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-weight: 300;
+    @include respond(phone) {
+      font-size: 1.5rem;
+    }
   }
-  // &.inactive {
-  //   height: 0;
-  //   width: 0;
-  //   opacity: 0;
-  //   visibility: hidden;
-  // }
-  // &.active {
-  //   width: 22%;
-  //   height: 30rem;
-  //   opacity: 1;
-  //   visibility: visible;
-  // }
+  .btn {
+    font-size: 2rem;
+  }
 }
